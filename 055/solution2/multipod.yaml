@@ -1,0 +1,18 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: multi-pod
+  namespace: expense
+  labels:
+    project: expense
+    environment: dev
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+  - name: almalinux
+    image: almalinux:9
+    command: ['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 10000']
+

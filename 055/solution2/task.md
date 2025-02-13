@@ -1,0 +1,6 @@
+- Create an EKS Cluster and perform the following tasks
+- Using a YAML file
+    - Create a namespace
+    - Create a single container pod
+    - Create a multi container pod
+- Delete the EKS Cluster
