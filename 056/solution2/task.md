@@ -1,0 +1,12 @@
+- Create an EKS Cluster and perform the following tasks
+- Using a YAML file
+    - Create a pod with labels
+    - Create a pod with annotations
+    - Create a pod with environment variables
+    - Create a pod with resource requests and limits
+    - Create a pod with configmap
+    - Create a pod with secrets
+    - Create a pod with clusterip service
+    - Create a pod with nodeport service
+    - Create a pod with loadbalancer service
+- Delete the EKS Cluster

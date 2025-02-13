@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: annotations-pod
+  labels:
+    project: expense
+    environment: dev
+  annotations:
+    owner: "harsha"
+    git-repo: "https://github.com/harsha-commit/daws-kubernetes.git"
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80

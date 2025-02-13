@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resources-pod
+  labels:
+    project: expense
+    environment: dev
+  annotations:
+    owner: "harsha"
+    git-repo: "https://github.com/harsha-commit/daws-kubernetes.git"
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+    env:
+    - name: "DB_URL"
+      value: "http://db.harshadevops.site:3306"
+    - name: "JENKINS_URL"
+      value: "http://jenkins.harshadevops.site:8080"
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "128Mi"
+        cpu: "500m"

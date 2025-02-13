@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: expense-configmap
+data:
+  DB_URL: "http://db.harshadevops.site:3306"
+  JENKINS_URL: "http://jenkins.harshadevops.site:8080"
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-pod
+  labels:
+    project: expense
+    environment: dev
+  annotations:
+    owner: "harsha"
+    git-repo: "https://github.com/harsha-commit/daws-kubernetes.git"
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+    env:
+    - name: DB_URL
+      valueFrom:
+        configMapKeyRef:
+          name: expense-configmap
+          key: DB_URL
+    - name: JENKINS_URL
+      valueFrom:
+        configMapKeyRef:
+          name: expense-configmap
+          key: JENKINS_URL
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
