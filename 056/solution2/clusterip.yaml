@@ -9,7 +9,7 @@ spec:
   containers:
   - name: nginx
     image: nginx
-    command: ["sh", "-c", "echo 'Hello from Kubernetes' > /usr/share/nginx/html/index.html"]
+    command: ['sh', '-c', 'echo "Hello from Kubernetes" > /usr/share/nginx/html/index.html']
 
 ---
 
