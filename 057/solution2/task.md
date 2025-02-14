@@ -1,0 +1,9 @@
+- Create an EKS Cluster and perform the following tasks
+- Using a YAML file
+    - Create a replicaset
+    - Create a deployment
+- Start Expense Project
+    - Create db deployment with service
+    - Create backend deployment with service
+    - Create frontend deployment with service
+- Delete the EKS Cluster
