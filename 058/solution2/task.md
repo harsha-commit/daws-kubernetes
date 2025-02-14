@@ -1,0 +1,7 @@
+- Create an EKS Cluster and perform the following tasks
+- Start Expense Project
+    - Create db deployment with service
+    - Create backend deployment with service
+    - Create frontend deployment with service
+- Add EBS PVCs to db pods (static and dynamic provisioning)
+- Delete the EKS Cluster
