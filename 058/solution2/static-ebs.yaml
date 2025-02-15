@@ -11,7 +11,7 @@ spec:
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
-    volumeHandle: vol-08280a88ebccc3994
+    volumeHandle: vol-0f0d1608f1488f51d
 
 ---
 apiVersion: v1
@@ -27,3 +27,5 @@ spec:
   resources:
     requests:
       storage: 5Gi
+    limits:
+      storage: 25Gi
