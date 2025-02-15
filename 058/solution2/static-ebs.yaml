@@ -27,5 +27,3 @@ spec:
   resources:
     requests:
       storage: 5Gi
-    limits:
-      storage: 25Gi
