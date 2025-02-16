@@ -1,0 +1,7 @@
+configmap:
+	db_port: 8080
+  backend_port: 3306
+  frontend_port: 8080
+deployment:
+	replicas: 3
+	imageVersion: 1.0
