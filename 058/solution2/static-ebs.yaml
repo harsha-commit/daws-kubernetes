@@ -26,4 +26,4 @@ spec:
     - ReadWriteMany # for MySQL
   resources:
     requests:
-      storage: 5Gi
+      storage: 50Gi
