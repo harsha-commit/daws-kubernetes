@@ -23,7 +23,7 @@ spec:
   storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
   volumeName: mysql-pv
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany # for MySQL
   resources:
     requests:
       storage: 5Gi
