@@ -1,0 +1,71 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-headless
+  namespace: expense
+  labels:
+    tier: db
+    project: expense
+spec:
+  clusterIP: None
+  ports:
+  - port: 3306
+    targetPort: 3306
+  selector:
+    tier: db
+    project: expense
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: expense
+  labels:
+    tier: db
+    project: expense
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+  selector:
+    tier: db
+    project: expense
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+spec:
+  selector:
+    matchLabels:
+      tier: db
+      project: expense
+  serviceName: "mysql-headless"
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        tier: db
+        project: expense
+    spec:
+      containers:
+      - name: mysql
+        image: docksterharsha/mysql:1.0
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: mysql
+          mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+  - metadata:
+      name: mysql
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "mysql-sc"
+      resources:
+        requests:
+          storage: 5Gi
