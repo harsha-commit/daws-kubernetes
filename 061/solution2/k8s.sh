@@ -32,3 +32,6 @@ echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
 ./get_helm.s
+
+# Metrics Server
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml

@@ -2,6 +2,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: expense-cluster-reader
+  namespace: expense
 rules:
 - apiGroups: [""]
   resources: ["secrets", "persistentvolumes", "nodes"]
@@ -12,6 +13,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: expense-cluster-reader
+  namespace: expense
 subjects:
 - kind: User
   name: harish

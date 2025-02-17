@@ -29,3 +29,10 @@
 	- `aws eks update-kubeconfig --region us-east-1 --name expense-1`
 - `kubectl get nodes` -> this shouldn't work
 - `kubectl get pods -n expense` -> this should work
+
+---
+- Search for metrics server kubernetes
+- Select github.com/kubernetes-sigs/metrics-server
+- Check under Installation
+- Create a Pod with resource definition (requests and limits)
+- `kubectl top pod`
