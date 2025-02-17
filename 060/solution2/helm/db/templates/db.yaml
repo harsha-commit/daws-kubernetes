@@ -9,8 +9,8 @@ metadata:
 spec:
   clusterIP: None
   ports:
-  - port: {{.Values.configmap.db_port}}
-    targetPort: {{.Values.configmap.db_port}}
+  - port: {{.Values.configmap.port}}
+    targetPort: {{.Values.configmap.port}}
   selector:
     tier: db
     project: expense
@@ -27,8 +27,8 @@ metadata:
     project: expense
 spec:
   ports:
-  - port: {{.Values.configmap.db_port}}
-    targetPort: {{.Values.configmap.db_port}}
+  - port: {{.Values.configmap.port}}
+    targetPort: {{.Values.configmap.port}}
   selector:
     tier: db
     project: expense
@@ -57,7 +57,7 @@ spec:
       - name: mysql
         image: docksterharsha/mysql:{{.Values.deployment.imageVersion}}
         ports:
-        - containerPort: {{.Values.configmap.db_port}}
+        - containerPort: {{.Values.configmap.port}}
         volumeMounts:
         - name: mysql
           mountPath: /var/lib/mysql

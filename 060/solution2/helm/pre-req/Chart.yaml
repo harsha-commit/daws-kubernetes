@@ -1,0 +1,4 @@
+apiVersion: v1
+name: pre-req
+version: 0.0.1
+description: This is the helm implementation of pre-req

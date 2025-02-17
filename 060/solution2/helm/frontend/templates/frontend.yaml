@@ -54,7 +54,7 @@ data:
       include /etc/nginx/sites-enabled/*;
 
       server {
-        listen       {{.Values.configmap.frontend_port}};
+        listen       {{.Values.configmap.port}};
         server_name  localhost;
 
         proxy_http_version 1.1;
@@ -118,7 +118,7 @@ spec:
       - name: frontend
         image: docksterharsha/frontend:{{.Values.deployment.imageVersion}}
         ports:
-        - containerPort: {{.Values.configmap.backend_port}}
+        - containerPort: {{.Values.configmap.port}}
         volumeMounts:
         - name: nginx-conf
           mountPath: "/etc/nginx/nginx.conf"
@@ -144,5 +144,5 @@ spec:
     project: expense
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: {{.Values.configmap.backend_port}}
+      port: {{.Values.configmap.targetPort}}
+      targetPort: {{.Values.configmap.port}}

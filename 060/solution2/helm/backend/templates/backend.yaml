@@ -31,7 +31,7 @@ spec:
       - name: backend
         image: docksterharsha/backend:{{.Values.deployment.imageVersion}}
         ports:
-        - containerPort: {{.Values.configmap.backend_port}}
+        - containerPort: {{.Values.configmap.port}}
         envFrom:
         - configMapRef:
             name: backend
@@ -48,5 +48,5 @@ spec:
     project: expense
   ports:
     - protocol: TCP
-      port: {{.Values.configmap.backend_port}}
-      targetPort: {{.Values.configmap.backend_port}}
+      port: {{.Values.configmap.port}}
+      targetPort: {{.Values.configmap.port}}
