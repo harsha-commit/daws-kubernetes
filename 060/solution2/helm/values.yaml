@@ -5,4 +5,4 @@ configmap:
 
 deployment:
   replicas: 3
-  imageVersion: 1.0
+  imageVersion: "1.0"
