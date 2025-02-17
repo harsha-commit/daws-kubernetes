@@ -1,0 +1,24 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: expense
+  name: expense-pod-reader
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["pods"]
+  verbs: ["get", "watch", "list"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: expense-pod-reader
+  namespace: expense
+subjects:
+- kind: User
+  name: harish
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: expense-pod-reader
+  apiGroup: rbac.authorization.k8s.io
